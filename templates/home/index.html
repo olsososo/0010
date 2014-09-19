@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script type="text/javascript" src="{{ static_url("assets/js/typing.js") }}"></script>
+	<link rel="stylesheet" href="{{ static_url("assets/css/typing.css") }}" />
+	<style type="text/css">
+	.string{
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        font-size: 18px;
+        line-height: 26px;
+	}
+	</style>
+	<title>oneggo</title>
+</head>
+<body>
+
+<div id="source" style="display:none; text-size:16px;">
+  	<span class="string">It works!</span>
+</div>
+<div id="output-wrap">
+  <span id="output"></span>
+  <span class="typing-cursor-white">|</span>
+</div>
+
+<script>
+  var typing = new Typing({
+    source: document.getElementById('source'),
+    output: document.getElementById('output'),
+    delay: 200
+  });
+  typing.start();
+</script>
+
+</body>
+</html>

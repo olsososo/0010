@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Login Page - Ace Admin</title>
+
+		<meta name="description" content="User login page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="{{ static_url("assets/css/bootstrap.min.css") }}" />
+		<link rel="stylesheet" href="{{ static_url("assets/css/font-awesome.min.css") }}" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="{{ static_url("assets/css/ace-fonts.css") }}" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="{{ static_url("assets/css/ace.min.css") }}" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="{{ static_url("assets/css/ace-part2.min.css") }}" />
+		<![endif]-->
+		<link rel="stylesheet" href="{{ static_url("assets/css/ace-rtl.min.css") }}" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="{{ static_url("assets/css/ace-ie.min.css") }}" />
+		<![endif]-->
+		<link rel="stylesheet" href="{{ static_url("assets/css/ace.onpage-help.css") }}" />
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="{{ static_url("assets/js/html5shiv.js") }}"></script>
+		<script src="{{ static_url("assets/js/respond.min.js") }}"></script>
+		<![endif]-->
+	</head>
+    
+	<head>
+		<meta charset="utf-8" />
+		<title>Login Page - Ace Admin</title>
+
+		<meta name="description" content="User login page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="{{ static_url("css/bootstrap.min.css") }}" rel="stylesheet" />
+		<link rel="stylesheet" href="{{ static_url("css/font-awesome.min.css") }}" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="{{ static_url("css/font-awesome-ie7.min.css") }}" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="{{ static_url("css/ace-fonts.css") }}" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="{{ static_url("css/ace.min.css") }}" />
+		<link rel="stylesheet" href="{{ static_url("css/ace-rtl.min.css") }}" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="{{ static_url("css/ace-ie.min.css") }}" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="{{ static_url("js/html5shiv.js") }}"></script>
+		<script src="{{ static_url("js/respond.min.js") }}"></script>
+		<![endif]-->
+	</head>
+
+	<body class="login-layout">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="center">
+								<h1>
+									<i class="icon-leaf green"></i>
+									<span class="red">Ace</span>
+									<span class="white">Application</span>
+								</h1>
+								<h4 class="blue">&copy; Oneggo</h4>
+							</div>
+
+							<div class="space-6"></div>
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="icon-coffee green"></i>
+												Please Enter Your Information
+											</h4>
+
+											<div class="space-6"></div>
+
+											<form action="{{ request.path }}" method="post">
+												<fieldset>
+													{% if errors %}
+														<ul>
+														{% for error in errors %}
+															{% for i in errors[error] %}
+															<li>{{ i }}</li>
+															{% end %}
+														{% end %}
+														</ul>
+													{% end %}
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<select name="opersite">
+                                                            	{% for site in sites %}
+                                                            	<option value="{{ site['id'] }}">{{ site['name'] }}</option>
+                                                            	{% end %}
+                                                            </select>
+															<i class="icon-user"></i>
+														</span>
+													</label>
+                                                    
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="Username" name="name" required autocomplete="off" />
+															<i class="icon-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="Password" name="password" required autocomplete="off" />
+															<i class="icon-lock"></i>
+														</span>
+													</label>
+
+													{% if captcha %}
+													<label class="block clearfix">
+														<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k={{ recaptcha_publickey }}"></script>
+														<noscript>
+												            <iframe src="http://www.google.com/recaptcha/api/noscript?k={{ recaptcha_publickey }}" height="140" width="350" frameborder="0"></iframe><br>
+													        <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+													        <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+													    </noscript>
+												    </label>
+												    {% end %}
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<label class="inline">
+															<input type="checkbox" class="ace" checked>
+															<span class="lbl"> Remember Me</span>
+														</label>
+
+														{{ xsrf_form_html() }}
+
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+															<i class="icon-key"></i>
+															Login
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+										</div><!-- /widget-main -->
+									</div><!-- /widget-body -->
+								</div><!-- /login-box -->
+
+							</div><!-- /position-relative -->
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div>
+		</div><!-- /.main-container -->
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='{{ static_url("assets/js/jquery.min.js")}}'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='{{ static_url("assets/js/jquery1x.min.js")}}'>"+"<"+"/script>");
+</script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='{{ static_url("assets/js/jquery.mobile.custom.min.js")}}'>"+"<"+"/script>");
+		</script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+			 $(document).on('click', '.toolbar a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+				$('.widget-box.visible').removeClass('visible');//hide others
+				$(target).addClass('visible');//show target
+			 });
+			});
+			
+			
+			
+			//you don't need this, just used for changing background
+			jQuery(function($) {
+			 $('#btn-login-dark').on('click', function(e) {
+				$('body').attr('class', 'login-layout');
+				$('#id-text2').attr('class', 'white');
+				$('#id-company-text').attr('class', 'blue');
+				
+				e.preventDefault();
+			 });
+			 $('#btn-login-light').on('click', function(e) {
+				$('body').attr('class', 'login-layout light-login');
+				$('#id-text2').attr('class', 'grey');
+				$('#id-company-text').attr('class', 'blue');
+				
+				e.preventDefault();
+			 });
+			 $('#btn-login-blur').on('click', function(e) {
+				$('body').attr('class', 'login-layout blur-login');
+				$('#id-text2').attr('class', 'white');
+				$('#id-company-text').attr('class', 'light-blue');
+				
+				e.preventDefault();
+			 });
+			 
+			});
+		</script>
+	</body>
+</html>

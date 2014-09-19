@@ -1,0 +1,23 @@
+{
+"page":{{ page }},
+"per_page":{{ per_page }},
+"pages":{{ pages }},
+"total":{{ total }},
+"products":[{% if products %}{% for k,v in enumerate(products) %}{% if k == 0 %}{% else %},{% end %}
+    {
+        "id" : {{ v['id'] }},
+        "pid" : {{ v['pid'] }},
+        "category" : {{ v['category'] }},
+        "title" : "{{ v['title'] }}",
+        "description" : "{{ v['description'] }}",
+        "asin" : "{{ v['asin'] }}",
+        "url" : "{{ v['url'] }}",
+        "short_url" : "{{ v['shortUrl'] }}",
+        "photo" : "{{ v['photo'] }}",
+        "price" : "{{ v['price'] }}",
+        "market_price" : "{{ v['marketPrice'] }}",
+        "view_count" : {{ v['view'] }},
+        "like_count" : {{ v['likes'] }},
+        "created_at" : "{{ stamp2time(v['time']) }}"
+    }
+{% end %}{% end %}]}

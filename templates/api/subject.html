@@ -1,0 +1,9 @@
+{
+"subjects":[{% for k,v in enumerate(subjects) %}{% if k == 0 %}{% else %},{% end %}
+    {
+        "id" : {{ v['id'] }},
+        "title" : "{{ v['title'] }}",
+        "description" : "{{ v['description'] }}",
+        "photo" : "{{ v['photo'] }}"
+    }
+{% end %}]}

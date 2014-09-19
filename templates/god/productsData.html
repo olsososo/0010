@@ -1,0 +1,27 @@
+{
+"total":{{ total }},
+"page":{{ page }},
+"records":{{ records }},
+"rows":[{% for k,v in enumerate(products) %}{% if k == 0 %}{% else %},{% end %}
+    {
+        "id" : "{{ v['id'] }}",
+        "title" : "{{ v['title'] }}",
+        "asin" : "{{ v['asin'] }}",
+        "url" : "{{ v['url'] }}",
+        "shortUrl" : "{{ v['shortUrl'] }}",
+        "photo" : "{{ v['photo'] }}",
+        "price" : "{{ v['price'] }}",
+        "marketPrice" : "{{ v['marketPrice'] }}",
+        "view" : "{{ v['view'] }}",
+        "likes" : "{{ v['likes'] }}",
+        "score" : "{{ v['score'] }}",
+        "sort" : "{{ v['sort'] }}",
+        "time" : "{{ stamp2time(v['time']) }}",
+        "status" : "{{ v['status'] }}",
+        "cid" : "{{ v['cid'] }}",
+        "category" : "{{ v['category'] }}",
+        "alliance" : "{{ v['alliance'] }}",
+        "uid" : "{{ v['uid'] }}",
+        "username" : "{{ v['username'] }}"
+    }
+{% end %}]}

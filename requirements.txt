@@ -1,0 +1,9 @@
+tornado
+wtforms
+qiniu
+requests
+lxml
+python-memcached
+#tcelery
+#mysql
+#tornadoasyncmemcache

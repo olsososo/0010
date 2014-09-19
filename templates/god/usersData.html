@@ -1,0 +1,16 @@
+{
+"total":{{ total }},
+"page":{{ page }},
+"records":{{ records }},
+"rows":[{% for k,v in enumerate(users) %}{% if k == 0 %}{% else %},{% end %}
+    {
+        "id" : "{{ v['id'] }}",
+        "nickname" : "{{ v['nickname'] }}",
+        "email" : "{{ v['email'] }}",
+        "gender" : "{{ v['gender'] }}",
+        "photo" : "{{ v['photo'] }}",
+        "photo" : "{{ v['photo'] }}",
+        "platformid" : "{{ v['platformid'] }}",
+        "time" : "{{ stamp2time(v['time']) }}"
+    }
+{% end %}]}

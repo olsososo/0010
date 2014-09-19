@@ -1,0 +1,17 @@
+{
+"total":{{ total }},
+"page":{{ page }},
+"records":{{ records }},
+"rows":[{% for k,v in enumerate(tasks) %}{% if k == 0 %}{% else %},{% end %}
+    {
+        "id" : "{{ v['id'] }}",
+        "asin" : "{{ v['asin'] }}",
+        "cid" : "{{ v['cid'] }}",
+        "category" : "{{ v['category'] }}",
+        "alliance" : "{{ v['alliance'] }}",
+        "uid" : "{{ v['uid'] }}",
+        "username" : "{{ v['username'] }}",
+        "status" : "{{ v['status'] }}",
+        "time" : "{{ stamp2time(v['time']) }}"
+    }
+{% end %}]}

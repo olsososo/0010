@@ -1,0 +1,10 @@
+{
+"msgs":[{% for k,v in enumerate(data) %}{% if k == 0 %}{% else %},{% end %}
+    {
+        "id" : {{ v['id'] }},
+        "msg" : "{{ v['msg'] }}",
+        "time" : "{{ stamp2time(v['time'], '%Y-%m-%d %H:%M') }}",
+        "read" : {{ v['read'] }},
+        "msgtype" : {{ v['msgtype'] }}
+    }
+{% end %}]}

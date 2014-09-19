@@ -1,0 +1,16 @@
+{
+    "id" : {{ product['id'] }},
+    "pid" : {{ product['pid'] }},
+    "category" : {{ product['category'] }},
+    "title" : "{{ product['title'] }}",
+    "description" : "{{ product['description'] }}",
+    "asin" : "{{ product['asin'] }}",
+    "url" : "{{ product['url'] }}",
+    "short_url" : "{{ product['shortUrl'] }}",
+    "photo" : "{{ product['photo'] }}",
+    "price" : "{{ product['price'] }}",
+    "market_price" : "{{ product['marketPrice'] }}",
+    "view_count" : {{ product['view'] }},
+    "like_count" : {{ product['likes'] }},
+    "created_at" : "{{ stamp2time(product['time']) }}"
+}

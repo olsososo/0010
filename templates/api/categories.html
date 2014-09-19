@@ -1,0 +1,10 @@
+{
+"categories":[{% for k,v in enumerate(categories) %}{% if k == 0 %}{% else %},{% end %}
+    {
+        "id" : {{ v['id'] }},
+        "pid" : {{ v['pid'] }},
+        "name" : "{{ v['name'] }}",
+        "photo" : "{{ v['photo'] }}",
+        "description" : "{{ v['description'] }}"
+    }
+{% end %}]}

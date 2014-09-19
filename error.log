@@ -1,0 +1,1271 @@
+Traceback (most recent call last):
+  File "/home/wwwroot/shop/handler/api.py", line 66, in get
+    args['site'] = self.get_argument('site')
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 383, in get_argument
+    return self._get_argument(name, default, self.request.arguments, strip)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 452, in _get_argument
+    raise MissingArgumentError(name)
+MissingArgumentError: HTTP 400: Bad Request (Missing argument site)
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 97, in get
+    data = yield gen.Task(self.getData, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 108, in getData
+    self.db.execute("SELECT * FROM "+utils.getTableName('category', args['site'])+" WHERE id=%s", (args['category'],))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/home/wwwroot/shop/handler/api.py", line 87, in get
+    args['category'] = self.get_argument('category')
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 383, in get_argument
+    return self._get_argument(name, default, self.request.arguments, strip)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 452, in _get_argument
+    raise MissingArgumentError(name)
+MissingArgumentError: HTTP 400: Bad Request (Missing argument category)
+
+Traceback (most recent call last):
+  File "/home/wwwroot/shop/handler/api.py", line 510, in get
+    args['site'] = self.get_argument('site')
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 383, in get_argument
+    return self._get_argument(name, default, self.request.arguments, strip)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 452, in _get_argument
+    raise MissingArgumentError(name)
+MissingArgumentError: HTTP 400: Bad Request (Missing argument site)
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 97, in get
+    data = yield gen.Task(self.getData, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 108, in getData
+    self.db.execute("SELECT * FROM "+utils.getTableName('category', args['site'])+" WHERE id=%s", (args['category'],))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 97, in get
+    data = yield gen.Task(self.getData, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 108, in getData
+    self.db.execute("SELECT * FROM "+utils.getTableName('category', args['site'])+" WHERE id=%s", (args['category'],))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 851, in get
+    subjects = yield gen.Task(self.getSubject, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 856, in getSubject
+    self.db.execute("SELECT * FROM %s WHERE ishow=1 ORDER BY sort desc" %utils.getTableName('subject', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 97, in get
+    data = yield gen.Task(self.getData, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 108, in getData
+    self.db.execute("SELECT * FROM "+utils.getTableName('category', args['site'])+" WHERE id=%s", (args['category'],))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 851, in get
+    subjects = yield gen.Task(self.getSubject, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 856, in getSubject
+    self.db.execute("SELECT * FROM %s WHERE ishow=1 ORDER BY sort desc" %utils.getTableName('subject', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 97, in get
+    data = yield gen.Task(self.getData, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 108, in getData
+    self.db.execute("SELECT * FROM "+utils.getTableName('category', args['site'])+" WHERE id=%s", (args['category'],))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 851, in get
+    subjects = yield gen.Task(self.getSubject, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 856, in getSubject
+    self.db.execute("SELECT * FROM %s WHERE ishow=1 ORDER BY sort desc" %utils.getTableName('subject', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 851, in get
+    subjects = yield gen.Task(self.getSubject, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 856, in getSubject
+    self.db.execute("SELECT * FROM %s WHERE ishow=1 ORDER BY sort desc" %utils.getTableName('subject', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 97, in get
+    data = yield gen.Task(self.getData, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 108, in getData
+    self.db.execute("SELECT * FROM "+utils.getTableName('category', args['site'])+" WHERE id=%s", (args['category'],))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/home/wwwroot/shop/handler/api.py", line 66, in get
+    args['site'] = self.get_argument('site')
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 383, in get_argument
+    return self._get_argument(name, default, self.request.arguments, strip)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 452, in _get_argument
+    raise MissingArgumentError(name)
+MissingArgumentError: HTTP 400: Bad Request (Missing argument site)
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 227, in wrapper
+    runner.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 703, in get
+    result = yield gen.Task(self.doCheck, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 709, in doCheck
+    self.db.execute("SELECT * FROM %s WHERE name='category_last_updated' LIMIT 1" %utils.getTableName('config', args['site']))
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1320, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line 1512, in future_complete
+    f.result()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/concurrent.py", line 129, in result
+    raise_exc_info(self.__exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line 302, in wrapped
+    ret = fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 574, in inner
+    self.set_result(key, result)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 500, in set_result
+    self.run()
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 529, in run
+    yielded = self.gen.throw(*exc_info)
+  File "/home/wwwroot/shop/handler/api.py", line 74, in get
+    categories = yield gen.Task(self.getCategories, args)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 557, in run
+    self.yield_point.start(self)
+  File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 377, in start
+    self.func(*self.args, **self.kwargs)
+  File "/home/wwwroot/shop/handler/api.py", line 53, in getCategories
+    self.db.execute('SELECT * FROM '+utils.getTableName('category', args['site'])+' WHERE id!=0 ORDER BY sort DESC')
+  File "/home/wwwroot/shop/libs/db.py", line 71, in execute
+    return self.cursor.execute(sql, args)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 491, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 683, in cmd_query
+    statement))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 469, in _send_cmd
+    packet_number)
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/network.py", line 117, in send_plain
+    errno=2055, values=(self.get_address(), _strioerror(err)))
+OperationalError: 2055: Lost connection to MySQL server at '/tmp/mysql.sock', system error: 32 Broken pipe
+
