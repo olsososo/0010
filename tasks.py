@@ -18,7 +18,7 @@ celery = Celery("tasks", broker="amqp://guest:guest@localhost:5672")
 celery.conf.CELERY_RESULT_BACKEND = "amqp"
 platforms.C_FORCE_ROOT = True
 
-db = DB(True,user='root', password='Itisasinglesong',host='localhost', database='shop', \
+db = DB(True,user='root', password='password',host='localhost', database='shop', \
 	unix_socket="/tmp/mysql.sock", buffered=True)
 app_key = u'cbc8065f1d0091d9a27a9378'
 master_secret = u'ad145d143d70ecb91ec0e193'
